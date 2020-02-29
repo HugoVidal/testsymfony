@@ -12,6 +12,7 @@
                 <th>Nom</th>
                 <th>Email</th>
                 <th>Question</th>
+                <th>Supprimer</th>
             </tr>
             </thead>
             <tbody>
@@ -20,6 +21,7 @@
                     <td>{{ question.name }}</td>
                     <td>{{ question.email }}</td>
                     <td>{{ question.content }}</td>
+                    <td><a class="btn btn-danger text-white" href="{{ path('question.delete', {id: question.id}) }}">Supprimer</a></td>
                 </tr>
             {% endfor %}
             </tbody>

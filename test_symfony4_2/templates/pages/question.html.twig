@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Liste des questions' %}
+
+{% block body %}
+    <h1>Liste des questions</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Email</th>
+                <th>Question</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for question in questions %}
+            <tr>
+                <td>{{ question.name }}</td>
+                <td>{{ question.email }}</td>
+                <td>{{ question.content }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

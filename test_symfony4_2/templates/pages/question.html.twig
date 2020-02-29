@@ -3,24 +3,28 @@
 {% block title 'Liste des questions' %}
 
 {% block body %}
-    <h1>Liste des questions</h1>
+    <div class="container mt-5">
+        <h1>Liste des questions</h1>
 
-    <table>
-        <thead>
+        <table class="table table-striped mt-4">
+            <thead>
             <tr>
                 <th>Nom</th>
                 <th>Email</th>
                 <th>Question</th>
             </tr>
-        </thead>
-        <tbody>
+            </thead>
+            <tbody>
             {% for question in questions %}
-            <tr>
-                <td>{{ question.name }}</td>
-                <td>{{ question.email }}</td>
-                <td>{{ question.content }}</td>
-            </tr>
+                <tr>
+                    <td>{{ question.name }}</td>
+                    <td>{{ question.email }}</td>
+                    <td>{{ question.content }}</td>
+                </tr>
             {% endfor %}
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+
+        <a class="btn btn-info mt-2" href="{{ path('home') }}">Retour</a>
+    </div>
 {% endblock %}

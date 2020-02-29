@@ -3,12 +3,14 @@
 {% block title 'Posez votre question' %}
 
 {% block body %}
-    <h1>Posez votre question</h1>
-
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <button>Envoyer</button>
-    {{ form_end(form) }}
-
-    <a href="{{ path('questions') }}" target="_blank">Liste des questions</a>
+    <div class="container mt-5">
+        <h1>Posez votre question</h1>
+        <div class="col-md-4">
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            <button class="btn btn-primary">Envoyer</button>
+            {{ form_end(form) }}
+            <a class="btn btn-info mt-2" href="{{ path('questions') }}">Liste des questions</a>
+        </div>
+    </div>
 {% endblock %}

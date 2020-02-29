@@ -24,6 +24,6 @@ class QuestionController extends AbstractController {
      */
     public function index(): Response {
         $questions = $this->repository->findAll();
-        return $this->render('pages/question.html.twig', compact('questions'));
+        return $this->render('pages/question.html.twig', ['questions' => $questions]);
     }
 }

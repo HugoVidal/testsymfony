@@ -6,7 +6,8 @@
     <div class="container mt-5">
         <h1>Liste des questions</h1>
 
-        <table class="table table-striped mt-4">
+        <h4 class="mt-4">Nouvelles questions</h4>
+        <table class="table table-striped">
             <thead>
             <tr>
                 <th>Nom</th>
@@ -16,17 +17,30 @@
             </tr>
             </thead>
             <tbody>
-            {% for question in questions %}
+            {% for question in new_questions %}
                 <tr>
                     <td>{{ question.name }}</td>
                     <td>{{ question.email }}</td>
                     <td>{{ question.content }}</td>
                     <td>
-                        {% if question.isTreated == 0 %}
-                            <a class="btn btn-success text-white" href="{{ path('question.treat', {id: question.id}) }}">Traiter</a>
-                        {% else %}
-                            <label class="text-success">Traitée</label>
-                        {% endif %}
+                        <a class="btn btn-success text-white" href="{{ path('question.treat', {id: question.id}) }}">Traiter</a>
+                        <a class="btn btn-danger text-white" href="{{ path('question.delete', {id: question.id}) }}">Supprimer</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <h4 class="mt-4">Questions déjà traitées</h4>
+        <table class="table table-striped">
+            <tbody>
+            {% for question in treated_questions %}
+                <tr>
+                    <td>{{ question.name }}</td>
+                    <td>{{ question.email }}</td>
+                    <td>{{ question.content }}</td>
+                    <td>
+                        <label class="text-success">Traitée&nbsp;&nbsp;</label>
                         <a class="btn btn-danger text-white" href="{{ path('question.delete', {id: question.id}) }}">Supprimer</a>
                     </td>
                 </tr>

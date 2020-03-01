@@ -30,8 +30,15 @@
          * @return Response
          */
         public function index(): Response {
-            $questions = $this->repository->findAll();
-            return $this->render('pages/question.html.twig', ['questions' => $questions]);
+            $new_questions = $this->repository->findBy(['isTreated' => 0]);
+            $treated_questions = $this->repository->findBy(
+                ['isTreated' => 1],
+                ['id' => 'DESC']
+            );
+            return $this->render('pages/question.html.twig', [
+                'new_questions' => $new_questions,
+                'treated_questions' => $treated_questions
+            ]);
         }
 
         /**

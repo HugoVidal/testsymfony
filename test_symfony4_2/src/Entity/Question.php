@@ -31,6 +31,11 @@ class Question
      */
     private $content;
 
+    /**
+     * @ORM\Column(type="boolean", options={"default": false})
+     */
+    private $isTreated;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -68,6 +73,18 @@ class Question
     public function setContent(string $content): self
     {
         $this->content = $content;
+
+        return $this;
+    }
+
+    public function getIsTreated(): ?bool
+    {
+        return $this->isTreated;
+    }
+
+    public function setIsTreated(?bool $isTreated): self
+    {
+        $this->isTreated = $isTreated;
 
         return $this;
     }

@@ -35,6 +35,17 @@
         }
 
         /**
+         * @Route("/question/treat/{id}", name="question.treat")
+         * @param Question $question
+         * @return \Symfony\Component\HttpFoundation\RedirectResponse
+         */
+        public function treatQuestion(Question $question) {
+            $question->setIsTreated(true);
+            $this->entityManager->flush();
+            return $this->redirectToRoute('questions');
+        }
+
+        /**
          * @Route("/question/delete/{id}", name="question.delete")
          * @param Question $question
          * @return \Symfony\Component\HttpFoundation\RedirectResponse

@@ -32,6 +32,7 @@
             $form->handleRequest($request);
 
             if($form->isSubmitted()) {
+                $question->setIsTreated(false);
                 $this->entityManager->persist($question);
                 $this->entityManager->flush();
                 return $this->redirectToRoute('home');

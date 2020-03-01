@@ -39,7 +39,6 @@
             }
 
             return $this->render('pages/home.html.twig', [
-                'question' => $question,
                 'form' => $form->createView()
             ]);
         }
